@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>formulário</title>
+</head>
+<body>
+    <div class="container">
+        <h1>HTML Form</h1>
+        <form>
+            <div class="form-group">
+                <label>primeiro nome</label>
+                <input type="text" id="nome" placeholder="digite seu nome">
+            </div>
+            <div class="form-group">
+                <label>sobrenome</label>
+                <input type="text" id="nome" placeholder="digite seu sobrenome">
+            </div>
+            <div class="form-group">
+                <label>email</label>
+                <input type="text">
+            </div>
+            <div class="form-group">
+                <label>numero de telefone</label>
+                <input type="text" id="nome" placeholder="digite seu numero">
+            </div>
+            <div class="form-group">
+                <label>data de nascimento</label>
+                <input type="date">
+            </div>
+            <button type="submit" class="button">confirmar</button>
+            <button type="reset" class="button">apagar</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("formulario").addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            let nome = document.getElementById("nome").value;
+            let sobrenome = document.getElementById("sobrenome").value;
+            let date = document.getElementById("date").value;
+            let email = document.getElementById("email").value;
+            let tel = document.getElementById("tel").value;
+
+            if (nome === "") {
+                alert("Preencha o primeiro nome!");
+                return;
+            }
+
+            if (sobrenome === "") {
+                alert("Preencha o sobrenome!");
+                return;
+            }
+
+            if (date === "") {
+                alert("Informe a data de nascimento!");
+                return;
+            }
+
+            if (!email.includes("@")) {
+                alert("Digite um e-mail válido!");
+                return;
+            }
+
+            if (tel.length < 8) {
+                alert("Digite um telefone válido!");
+                return;
+            }
+
+            let usuario ={
+                nome: nome,
+                sobrenome: sobrenome,
+                date: date,
+                email: email,
+                tel: tel
+            };
+
+            console.log("dados do formulário");
+            console.log(usuario);
+
+            alert("Formulário enviado com secesso!");
+
+        });
+    </script>
+
+</body>
+</html>
